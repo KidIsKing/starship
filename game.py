@@ -69,9 +69,9 @@ class Starship(GameObject):
         # Создаем новую позицию
         x, y = self.position
 
-        if keys[pygame.K_d]:  # D - вправо
+        if keys[pygame.K_d] or keys[pygame.K_RIGHT]:  # D - вправо
             x += self.speed
-        if keys[pygame.K_a]:  # A - влево
+        if keys[pygame.K_a] or keys[pygame.K_LEFT]:  # A - влево
             x -= self.speed
 
         # Ограничиваем движение в пределах экрана
