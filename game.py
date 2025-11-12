@@ -8,9 +8,7 @@
 import pygame
 import sys
 from random import randint
-
-SCREEN_HEIGHT = 950
-SCREEN_WIDTH = 713
+from constants import SCREEN_HEIGHT, SCREEN_WIDTH
 
 clock = pygame.time.Clock()
 
@@ -160,8 +158,8 @@ class Bullet(GameObject):
         """
         super().__init__(position)
         self.speed = 10
-        self.width = 3
-        self.height = 15
+        self.width = 5
+        self.height = 18
         self.color = (255, 255, 0)  # желтый цвет для пуль
 
     def move(self):
@@ -288,9 +286,6 @@ class GameManager:
 
     def draw(self):
         """Отрисовывает фон игры с эффектом прокрутки."""
-        # Очищаем экран
-        self.screen.fill((0, 0, 0))
-
         # Рисуем фон
         self.bg_y -= 3
         if self.bg_y <= -SCREEN_HEIGHT:
@@ -422,7 +417,6 @@ def main():
         for meteorite in meteorites:
             meteorite.draw(game.screen)
 
-        # Счет отрисовывается ПОСЛЕДНИМ, чтобы быть поверх всех объектов
         game.draw_score()
 
         if game_over:
